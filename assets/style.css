@@ -1,0 +1,133 @@
+html {
+    font-family: "PT Mono", monospace;
+    font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(hsl(180, 50%, 50%), hsl(200, 50%, 50%));
+    max-width: 900px;
+}
+
+.kb-title {
+    font-family: 'Righteous', cursive;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
+}
+
+ul,
+ol {
+    /*margin: 0;padding: 0;*/
+    list-style: none;
+    padding-bottom: 10px;
+}
+
+li {
+    background: #273866;
+    color: #fff;
+    counter-increment: myCounter;
+    margin: 0 0 30px 0;
+    padding: 5px;
+    position: relative;
+    top: 1em;
+    border-radius: 0em 2px 1em 1em;
+    padding-left: 2em;
+    min-height: 58px;
+}
+
+li a {
+    color: hsl(180, 50%, 50%);
+}
+
+li a:hover {
+    color: hsl(200, 50%, 50%);
+}
+
+li:before {
+    content: counter(myCounter, decimal-leading-zero);
+    background-color: #FF6940;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: -35px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Righteous', cursive;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+}
+
+li:nth-child(even) {
+    background-color: #3b4058;
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
+
+.kb-highlight {
+    color: red;
+    font-weight: bold;
+}
+
+blockquote {
+    font-family: Open Sans;
+    font-style: italic;
+    color: #555555;
+    padding: 1.2em 30px 1.2em 75px;
+    border-left: 8px solid hsl(180, 50%, 50%);
+    line-height: 1.6;
+    position: relative;
+    background: #EDEDED;
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
+    margin: 1em 30px;
+}
+
+blockquote::before {
+    font-family: Arial;
+    content: "\201C";
+    color: hsl(180, 50%, 50%);
+    font-size: 4em;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+}
+
+blockquote::after {
+    content: '';
+}
+
+blockquote>.kb-source {
+    display: block;
+    color: #333333;
+    font-style: normal;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.kb-red {
+    color: red;
+}
+
+.kb-red .hljs-comment {
+    color: red;
+}
