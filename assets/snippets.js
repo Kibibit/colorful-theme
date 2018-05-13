@@ -1,5 +1,7 @@
 kbCodeSnippet();
 
+colorKibibitTitles();
+
 function colorKibibitTitles() {
     $('h1, h2, h3, h4, h4').each(( index ) => {
       const content = $( this ).html().replace('kibibit', [
