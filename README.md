@@ -1,13 +1,15 @@
 # kibibit-colorful
 
-Welcome to your new Jekyll theme! In this directory, you'll find the files you need to be able to package up your theme into a gem. Put your layouts in `_layouts`, your includes in `_includes`, your sass files in `_sass` and any other assets in `assets`.
+this is `kibibit`'s colorful theme for GitHub Pages. can be used in any jekyll site with the `Local Installation` section
 
-To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
+## Use on GitHub Pages
 
-TODO: Delete this and the text above, and describe your gem
+In order to use this theme with your GitHub Page, remove the `theme: <...>` line from `_config.yml` and replace it with the following:
+```yml
+remote_theme: Kibibit/colorful-theme
+```
 
-
-## Installation
+## Local Installation
 
 Add this line to your Jekyll site's `Gemfile`:
 
