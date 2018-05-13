@@ -19,11 +19,108 @@ body {
     justify-content: center;
     background: linear-gradient(hsl(180, 50%, 50%), hsl(200, 50%, 50%));
     max-width: 900px;
+    line-height: 1.5em;
 }
 
-.kb-title {
-    font-family: 'Righteous', cursive;
+:not(pre) code {
+    background-color: #0f3642;
+    color: #b4c4c6;
+    padding: 0.2em;
+    display: inline-block;
+    border-radius: 0.2em;
+    padding: 0 0.2em;
+    margin: 0;
+}
+
+/* .hljs {
+    background: inherit;
+    overflow-x: initial;
+} */
+
+pre code.hljs.shell {
+    border-radius: 0 0 7px 7px;
+    margin-top: 35px;
+}
+
+pre code.hljs.shell::before {
+    border-radius: 7px 7px 0 0;
+    position: absolute;
+    content: attr(data-title);
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    padding: 0 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: #4c3436;
+    font-size: 1em;
+    background: linear-gradient(0deg, #d8d8d8, #ececec);
+    top: -25px;
+    left: 0;
+    font-family: "PT Sans", sans-serif;
+}
+
+pre code.hljs.shell::after {
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: 10px;
+    width: 12px;
+    height: 12px;
+    background: #f95c5b;
+    border-radius: 100%;
+    box-shadow: 0 0 0 1px #da3d42, 22px 0 0 0 #fabe3b, 22px 0 0 1px #ecb03e, 44px 0 0 0 #38cd46, 44px 0 0 1px #2eae32;
+}
+
+pre {
+    margin: 0;
+}
+
+pre code,
+pre code.hljs {
+    width: 100%;
+    margin: 10px;
+    font-size: 1em;
+    line-height: 1.2em;
+    min-height: 40px;
+    background-color: #0f3642;
+    color: #b4c4c6;
+    /* padding: 10px; // padding is currently added by highlight.js */
+    border-radius: 7px;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 30px 1px rgba(0, 0, 0, 0.2);
+}
+
+.kb-code .kb-scroller {
+    overflow: auto;
+}
+
+h1 {
     font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Righteous', cursive;
+    /* font-size: 2.5rem; */
     color: white;
     text-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
 }
@@ -33,9 +130,61 @@ ol {
     /*margin: 0;padding: 0;*/
     list-style: none;
     padding-bottom: 10px;
+    counter-reset: myCounter;
 }
 
-li {
+ul > li {
+    background: #273866;
+    color: #fff;
+    margin: 0 0 30px 0;
+    padding: 5px;
+    position: relative;
+    top: 1em;
+    border-radius: 0em 2px 1em 1em;
+    padding-left: 2em;
+    min-height: 58px;
+}
+
+ul > li:before {
+    content: '';
+    background-color: #FF6940;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: -13px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Righteous', cursive;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+}
+
+ol > li li,
+ul > li li {
+    background: #AA3939;
+}
+
+ol > li li:nth-child(even),
+ul > li li:nth-child(even) {
+    background: #550000;
+}
+
+ol > li li li,
+ul > li li li {
+    background: #297B48;
+}
+
+ol > li li li:nth-child(even),
+ul > li li li:nth-child(even) {
+    background: #003E17;
+}
+
+ol > li {
     background: #273866;
     color: #fff;
     counter-increment: myCounter;
@@ -48,15 +197,35 @@ li {
     min-height: 58px;
 }
 
+a {
+ color: #273866;
+ transition: all 250ms;
+}
+
+a:hover,
+a:focus {
+    color: white;
+}
+
+a:focus {
+    outline: none;
+    outline: 2px solid white;
+}
+
 li a {
     color: hsl(180, 50%, 50%);
 }
 
-li a:hover {
+li a:hover,
+li a:focus {
     color: hsl(200, 50%, 50%);
 }
 
-li:before {
+li a:focus {
+    outline: 2px solid hsl(200, 50%, 50%);
+}
+
+ol > li:before {
     content: counter(myCounter, decimal-leading-zero);
     background-color: #FF6940;
     font-weight: bold;
@@ -124,10 +293,28 @@ blockquote>.kb-source {
     margin-top: 1em;
 }
 
-.kb-red {
-    color: red;
+blockquote h1,
+blockquote h2,
+blockquote h3,
+blockquote h4,
+blockquote h5 {
+    font-family: Open Sans;
+    text-shadow: none;
+    color: black;
 }
 
 .kb-red .hljs-comment {
-    color: red;
+    color: #E31B36;
+}
+
+.kb-red {
+    color: #E31B36;
+}
+
+.kb-blue {
+    color: #00A2C9;
+}
+
+.kb-yellow {
+    color: #EEB146;
 }
